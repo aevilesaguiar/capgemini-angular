@@ -6,7 +6,7 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+<!--
 <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -301,9 +301,9 @@
     }
   }
 </style>
-
+-->
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
+<!-- <div class="toolbar" role="banner">
   <img
     width="40"
     alt="Angular Logo"
@@ -327,7 +327,7 @@
 
 <div class="content" role="main">
 
-  <!-- Highlight Card -->
+ 
   <div class="card highlight-card card-small">
 
     <svg id="rocket" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
@@ -350,7 +350,7 @@
 
   </div>
 
-  <!-- Resources -->
+
   <h2>Resources</h2>
   <p>Here are some links to help you get started:</p>
 
@@ -386,7 +386,7 @@
 
   </div>
 
-  <!-- Next Steps -->
+
   <h2>Next Steps</h2>
   <p>What do you want to do next with your app?</p>
 
@@ -424,7 +424,6 @@
     </button>
   </div>
 
-  <!-- Terminal -->
   <div class="terminal" [ngSwitch]="selection.value">
       <pre *ngSwitchDefault>ng generate component xyz</pre>
       <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
@@ -434,7 +433,7 @@
       <pre *ngSwitchCase="'build'">ng build</pre>
   </div>
 
-  <!-- Links -->
+
   <div class="card-container">
     <a class="circle-link" title="Find a Local Meetup" href="https://www.meetup.com/find/?keywords=angular" target="_blank" rel="noopener">
       <svg xmlns="http://www.w3.org/2000/svg" width="24.607" height="23.447" viewBox="0 0 24.607 23.447">
@@ -452,7 +451,6 @@
     </a>
   </div>
 
-  <!-- Footer -->
   <footer>
       Love Angular?&nbsp;
       <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> Give our repo a star.
@@ -472,7 +470,7 @@
   </svg>
 
 </div>
-
+-->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -480,4 +478,54 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!--
+<app-index></app-index>
 
+<app-contato></app-contato>-->
+
+
+<h1>Isso é um h1 com interpolação {{ title }}</h1>
+
+
+<input type="button" value="Enviar"  (click)="acaoNgIf()">
+
+<h1 *ngIf="this.exibirTexto">Aprendendo Angular na proway</h1>
+
+<hr>
+<h3>Listas de Cursos:(com ngFor)</h3>
+<ul *ngFor="let curso of cursos"><!--curso é o indice e cursos é o vetor-->
+  <li>{{curso}}</li>
+</ul>
+
+<hr>
+<h3>Listas de Cursos:(listar o curso por incide)</h3>
+<ul *ngFor="let curso of cursos, let indice=index"><!--curso é o indice e cursos é o vetor-->
+  <li>{{(indice+1) + (" - ")}}  {{curso}}</li>
+</ul>
+
+<hr>
+
+<h3>Exemplos ngSwitch</h3>
+
+<div [ngSwitch]="curso_selecionado">
+<div *ngSwitchCase="cursos[0]">html</div>
+<div *ngSwitchCase="cursos[1]">css</div>
+<div *ngSwitchCase="cursos[2]">php Avançado</div>
+<div *ngSwitchCase="cursos[3]">Angular</div>
+
+</div>
+<hr>
+<style>
+.ligada{
+  color:green;
+  font-size: 5rem;
+}
+
+.desligada{
+  color: red;
+  font-size: 5rem;
+}
+
+</style>
+<!--Verificação: o ligada vai ocorrer quando a variável ligada(classe) for true (ligada do componente), -->
+<div [ngClass]="{'ligada':ligada, 'desligada':!ligada}">Lâmpada</div>
